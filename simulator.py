@@ -6,6 +6,7 @@
 from flask import Flask, request, session, redirect, url_for, \
     render_template, make_response
 from contextlib import closing
+import sys
 import state_manager
 
 # configuration
@@ -132,10 +133,17 @@ def get_data():
 
 if __name__ == '__main__':
     global gState
-    gState = state_manager.StateManager()
 
     flask_port0 = 50000
+    flask_port_listen = 50001
+
+    if len(sys.argv) >= 3:
+        flask_port0 = int(sys.argv[1])
+        flask_port_listen = int(sys.argv[2])
 
     print('For the UI, navigate a browser to localhost:' + str(flask_port0))
+    print('For the REST, use port:' + str(flask_port_listen))
+
+    gState = state_manager.StateManager(flask_port_listen)
 
     app.run(use_reloader=False, host='0.0.0.0', port=flask_port0)

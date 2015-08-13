@@ -7,9 +7,9 @@ import math
 
 
 class StateManager(object):
-    def __init__(self):
+    def __init__(self,port_rest):
         self.stopped = False
-        self.connection = enabler_connection.EnablerConnection()
+        self.connection = enabler_connection.EnablerConnection(port_rest)
         self.dynamics_model = dynamics_model.DynamicsModel()
 
         self.headlamp = False

@@ -3,11 +3,11 @@ import threading
 import json
 
 class EnablerConnection():
-    def __init__(self):
+    def __init__(self,port_rest):
         self.connections = []
 
         self.stopped = False
-        self.enabler_listening_port = 50001
+        self.enabler_listening_port = port_rest
 
         self.local_ip = socket.gethostbyname(socket.gethostname())
         t = threading.Thread(target=self.listen_loop, name='0.0.0.0',

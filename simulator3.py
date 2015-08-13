@@ -134,7 +134,7 @@ if __name__ == '__main__':
     global gState
     gState = state_manager3.StateManager()
 
-    flask_port2 = 50003
+    flask_port2 = 40000
 
     print('For the UI, navigate a browser to localhost:' + str(flask_port2))
 

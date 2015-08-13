@@ -135,13 +135,7 @@ if __name__ == '__main__':
     gState = state_manager.StateManager()
 
     flask_port0 = 50000
-    flask_port1 = 50001
-    flask_port2 = 50009
 
     print('For the UI, navigate a browser to localhost:' + str(flask_port0))
-    print('For the UI, navigate a browser to localhost:' + str(flask_port1))
-    print('For the UI, navigate a browser to localhost:' + str(flask_port2))
 
     app.run(use_reloader=False, host='0.0.0.0', port=flask_port0)
-    app.run(use_reloader=False, host='0.0.0.0', port=flask_port1)
-    app.run(use_reloader=False, host='0.0.0.0', port=flask_port2)

@@ -6,7 +6,7 @@
 from flask import Flask, request, session, redirect, url_for, \
     render_template, make_response
 from contextlib import closing
-import state_manager
+import state_manager2
 
 # configuration
 DEBUG = True
@@ -132,16 +132,11 @@ def get_data():
 
 if __name__ == '__main__':
     global gState
-    gState = state_manager.StateManager()
+    gState = state_manager2.StateManager()
 
-    flask_port0 = 50000
     flask_port1 = 50001
-    flask_port2 = 50009
 
-    print('For the UI, navigate a browser to localhost:' + str(flask_port0))
     print('For the UI, navigate a browser to localhost:' + str(flask_port1))
-    print('For the UI, navigate a browser to localhost:' + str(flask_port2))
 
-    app.run(use_reloader=False, host='0.0.0.0', port=flask_port0)
     app.run(use_reloader=False, host='0.0.0.0', port=flask_port1)
-    app.run(use_reloader=False, host='0.0.0.0', port=flask_port2)
+

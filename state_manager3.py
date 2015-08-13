@@ -1,4 +1,4 @@
-import enabler_connection
+import enabler_connection3
 import dynamics_model
 import threading
 import time
@@ -9,7 +9,7 @@ import math
 class StateManager(object):
     def __init__(self):
         self.stopped = False
-        self.connection = enabler_connection.EnablerConnection()
+        self.connection = enabler_connection3.EnablerConnection()
         self.dynamics_model = dynamics_model.DynamicsModel()
 
         self.headlamp = False

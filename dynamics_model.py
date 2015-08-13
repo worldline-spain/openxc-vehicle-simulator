@@ -17,6 +17,7 @@ from data import heading_calc
 from data import lat_calc
 from data import lon_calc
 
+
 class DynamicsModel(object):
     def __init__(self):
         self._initialize_data()
@@ -45,9 +46,9 @@ class DynamicsModel(object):
         for data in self.calculations:
             self.snapshot[data.name] = data.get()
 
-        self.delay_100Hz = datetime.timedelta(0,0,10000)
+        self.delay_100Hz = datetime.timedelta(0, 0, 10000)
         self.next_iterate = datetime.datetime.now() + self.delay_100Hz
-        self.zero_timedelta = datetime.timedelta(0,0,0)
+        self.zero_timedelta = datetime.timedelta(0, 0, 0)
 
         self.accelerator = 0.0
         self.brake = 0.0
@@ -76,14 +77,14 @@ class DynamicsModel(object):
                 time_til_calc = self.next_iterate - datetime.datetime.now()
                 if time_til_calc > self.zero_timedelta:
                     time.sleep(time_til_calc.microseconds / 1000000.0)
-                    #Assuming less than a second.
+                    # Assuming less than a second.
                 self.next_iterate = self.next_iterate + self.delay_100Hz
 
                 new_snapshot = {}
                 for data in self.calculations:
                     data.iterate(self.snapshot)
                     new_snapshot[data.name] = data.get()
-                    
+
                 # Store the latest user input...
                 new_snapshot['accelerator_pedal_position'] = self.accelerator
                 new_snapshot['brake'] = self.brake
@@ -96,7 +97,7 @@ class DynamicsModel(object):
                 new_snapshot['manual_trans'] = self.manual_trans_status
 
                 self.snapshot = new_snapshot
-# Properties  ---------------------
+            # Properties  ---------------------
 
     @property
     def torque(self):

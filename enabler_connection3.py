@@ -7,7 +7,7 @@ class EnablerConnection():
         self.connections = []
 
         self.stopped = False
-        self.enabler_listening_port = 50004
+        self.enabler_listening_port = 50006
 
         self.local_ip = socket.gethostbyname(socket.gethostname())
         t = threading.Thread(target=self.listen_loop, name='0.0.0.0',

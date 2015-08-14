@@ -54,8 +54,8 @@ class DynamicsModel(object):
         self.brake = 0.0
         self.steering_wheel_angle = 0.0
         self.parking_brake_status = False
-        self.engine_running = True
-        self.ignition_data = 'run'
+        self.engine_running = False
+        self.ignition_data = 'off'
         self.gear_lever = 'drive'
         self.manual_trans_status = False
 
